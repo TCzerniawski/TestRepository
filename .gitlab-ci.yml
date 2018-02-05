@@ -1,8 +1,6 @@
 image: node:6  
 
 before_script:
-  paths:
-    - my-application/
   - npm install
 
 cache:  
