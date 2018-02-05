@@ -1,15 +1,12 @@
-image: trion/ng-cli-karma
+image: node:6  
 
-cache:
+before_script:  
+  - npm install
+
+cache:  
   paths:
     - node_modules/
-
-deploy_stage:
-  stage: deploy
-  environment: Stage
-  only:
-    - master
+test:node:6:  
   script:
-    - npm install
-    - ./Tutorial/my-application/node_modules/@angular/cli/bin/ng test --progress false --single-run=true --watch=false
-    - ./Tutorial/my-application/node_modules/@angular/cli/bin/ng e2e --progress false --watch=false
+    - npm run build
+    - npm test
