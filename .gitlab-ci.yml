@@ -1,13 +1,15 @@
-before_script:
-  - export PATH=$PATH:./node_modules/.bin/
-  - npm install
+image: trion/ng-cli-karma
 
-tstest_job:
-  stage: test
+cache:
+  paths:
+    - node_modules/
+
+deploy_stage:
+  stage: deploy
+  environment: Stage
+  only:
+    - master
   script:
-    - ng test
-	
-test_job:
-  stage: test
-  script:
-    - karma start
+    - npm install
+    - ./node_modules/@angular/cli/bin/ng test --progress false --single-run=true --watch=false
+    - ./node_modules/@angular/cli/bin/ng e2e --progress false --watch=false
