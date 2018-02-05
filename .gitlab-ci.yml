@@ -1,11 +1,12 @@
 image: node:6  
 
-before_script:  
+before_script:
   - npm install
 
 cache:  
   paths:
     - node_modules/
+    - my-application/
 test:node:6:  
   script:
     - npm run build
