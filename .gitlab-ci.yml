@@ -1,0 +1,13 @@
+before_script:
+  - export PATH=$PATH:./node_modules/.bin/
+  - npm install
+
+tstest_job:
+  stage: test
+  script:
+    - ng test
+	
+test_job:
+  stage: test
+  script:
+    - karma start
