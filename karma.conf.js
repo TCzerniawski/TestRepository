@@ -35,7 +35,8 @@ module.exports = function (config) {
         base: 'Chrome',
         flags: ['--disable-web-security']
       }
+	singleRun: false
     }
-    singleRun: false
+
   });
 };
